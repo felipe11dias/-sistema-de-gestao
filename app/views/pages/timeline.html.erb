@@ -3,7 +3,7 @@
     <% if @current_user.admin? %>
       <%= link_to 'Dono', '/' , class: 'btn badge badge-dark' %>
      <% else %>
-      <%= link_to 'Funcionario', '/' , class: 'btn badge badge-dark' %>
+      <%= link_to 'Funcionário', '/' , class: 'btn badge badge-dark' %>
      <% end %>
   </span>
 </h4>
@@ -25,17 +25,25 @@
       </tr>
     </thead>
     <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-          <td><%= post.title %></td>
-          <td><%= post.body %></td>
-          <td><%= post.user.name %></td>
-          <td class="text-center"><%= link_to 'Mostrar', {:controller=>"comments", :action => 'post_index', :post_id => post.id } , class: 'btn btn-md badge badge-primary text-white', :style=>'font-size: 1rem;' %></td>
+    <% if @posts.length > 0 %>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= post.title %></td>
+            <td><%= post.body %></td>
+            <td><%= post.user.name %></td>
+            <td class="text-center"><%= link_to 'Mostrar', {:controller=>"comments", :action => 'post_index', :post_id => post.id } , class: 'btn btn-md badge badge-primary text-white', :style=>'font-size: 1rem;' %></td>
 
-          <% if current_user.id == post.user_id %>
-            <td class="text-center"><%= link_to 'Editar', edit_post_path(post) , class: 'btn btn-md badge badge-warning text-white', :style=>'font-size: 1rem;' %></td>
-            <td class="text-center"><%= link_to 'Remover', post, method: :delete, data: { confirm: 'Tem certeza?' } , class: 'btn btn-md badge badge-danger',  :style=>'font-size: 1rem;' %></td>
-          <% end %>
+            <% if current_user.id == post.user_id %>
+              <td class="text-center"><%= link_to 'Editar', edit_post_path(post) , class: 'btn btn-md badge badge-warning text-white', :style=>'font-size: 1rem;' %></td>
+              <td class="text-center"><%= link_to 'Remover', post, method: :delete, data: { confirm: 'Tem certeza?' } , class: 'btn btn-md badge badge-danger',  :style=>'font-size: 1rem;' %></td>
+            <% else %>
+              <td>Você não pode gerenciar essa publicação</td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td>Não tem publicações</td>
         </tr>
       <% end %>
     </tbody>

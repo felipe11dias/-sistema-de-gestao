@@ -24,6 +24,8 @@
               <%= link_to 'Editar', edit_comment_path(comment) , class: 'btn btn-md badge badge-warning m-auto text-white', :style=>'font-size: 1rem;' %>
               <%= link_to 'Remover', comment, method: :delete, data: { confirm: 'Tem certeza?' } , class: 'btn btn-md badge badge-danger m-auto',  :style=>'font-size: 1rem;' %>
             </td>
+        <% else %>
+          <td>Você não pode gerenciar esse comentario</td>
         <% end %>
       </tr>
     <% end %>

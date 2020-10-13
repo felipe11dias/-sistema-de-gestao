@@ -21,7 +21,7 @@
   <div class="field form-group">
     <%= f.label :password, 'Senha' %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> Minimo de caracteres)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control", :required => true %>
   </div>
@@ -35,5 +35,3 @@
     <%= f.submit "Criar usuário funcionario", class: 'btn btn-primary' %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
