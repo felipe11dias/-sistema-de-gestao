@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: company, local: true) do |form| %>
+      <% if company.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+    
+          <ul>
+            <% company.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="field form-group">
+        <%= form.label :name_company, 'Nome da empresa' %>
+        <%= form.text_field :name_company, class: "form-control", :required => true %>
+      </div>
+    
+      <div class="actions">
+        <%= form.submit 'Editar empresa', class: 'btn btn-dark' %>
+      </div>
+    <% end %>
+  </div>
+</div>  

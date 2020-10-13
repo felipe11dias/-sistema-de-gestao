@@ -1,0 +1,30 @@
+<div class="card">
+<div class="card-body">
+    <h2>Acessar conta</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field form-group">
+        <%= f.label :username, 'Nome do usuário' %><br />
+        <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control", :required => true %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :password, 'Senha' %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", :required => true %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field form-group">
+        <%= f.check_box :remember_me  %>
+        <%= f.label :remember_me, 'Lembrar de mim' %>
+        </div>
+      <% end %>
+      <div class="d-flex>
+        <div class="actions" style="display: flex;">
+          <%= f.submit "Entrar", class: 'btn btn-dark m-auto' %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

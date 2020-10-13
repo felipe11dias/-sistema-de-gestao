@@ -1,0 +1,47 @@
+<div id="myCarousel" class="carousel slide m-auto" style="max-width: 800px" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" ></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item">
+        <img class="first-slide" src="<%= asset_path('image1.jpg') %>" width="100%" height="400" alt="Sistema de gestão" loading="lazy">
+        <div class="container">
+            <div class="carousel-caption text-left" style="padding: 20px; color: aquamarine;">
+                <h1>Bem vindo.</h1>
+                <p>Cria sua empresa, cadastre-se como dono da empresa e comece já a por sua comunição interna em dia, cadastre os funcionários e acompanha o mural de mensagens.</p>
+                <a class="btn btn-lg" style="background-color: aquamarine; color: white;" href="/users/sign_in" role="button">Acessar conta</a></p>
+            </div>
+        </div>
+        </div>
+        <div class="carousel-item active" >
+        <img class="second-slide" src="<%= asset_path('image2.jpg') %>" width="100%" height="400" alt="Sistema de gestão" loading="lazy">
+        <div class="container">
+            <div class="carousel-caption" style="padding: 20px; color: lightcoral;">
+                <h1>Comunicação.</h1>
+                <p>Fazer comunicação corporativa, seja interna ou externa, é, por si só, um enorme desafio; quando bem executadas, representam um diferencial para qualquer que seja a organização.</p>
+                <p><a class="btn btn-lg"  style="background-color: lightcoral; color: white;"  href="https://www.racecomunicacao.com.br/blog/10-beneficios-da-comunicacao-interna/#:~:text=Confira%20alguns%20dos%20(muitos)%20benef%C3%ADcios,proporciona%20mais%20transpar%C3%AAncia%20%C3%A0%20organiza%C3%A7%C3%A3o." target="_blank" role="button">Ler mais</a></p>
+            </div>
+        </div>
+        </div>
+        <div class="carousel-item">
+        <img class="third-slide" src="<%= asset_path('image3.jpg') %>" width="100%" height="400" alt="Sistema de gestão" loading="lazy">
+        <div class="container">
+            <div class="carousel-caption text-right" style="padding: 20px; color: black;">
+                <h1>Sistema de gestão</h1>
+                <p>O sistema de gestão(SG) tem como objetivo facilitar a comunição interna da sua empresa de uma maneira fácil e direta.</p>
+                <p><a class="btn btn-lg" style="background-color: black; color: white;" href="/register" role="button">Crie já sua empresa</a></p>
+            </div>
+        </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev bg-dark" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next bg-dark" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Próximo</span>
+    </a>
+</div>

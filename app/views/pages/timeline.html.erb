@@ -1,0 +1,54 @@
+<h4>Bem vindo
+  <span style="color: dimgray;"><%=  @current_user.name %>
+    <% if @current_user.admin? %>
+      <%= link_to 'Dono', '/' , class: 'btn badge badge-dark' %>
+     <% else %>
+      <%= link_to 'Funcionario', '/' , class: 'btn badge badge-dark' %>
+     <% end %>
+  </span>
+</h4>
+    
+<h1>Mural de mensagens</h1>
+    
+<%= link_to 'Criar publicação', new_post_path , class: 'badge badge-success text-center', :style=>'margin-bottom: 10px; font-size: 1.5rem; float: right; margin-right: 10px;'  %>
+
+<div class="table-responsive">
+  <input class="form-control" id="myInput" type="text" placeholder="Procure mensagens por titulo, descrição ou criador" style="border: 1px solid #343a40;">
+  <table class="table" id="myTable">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Titulo</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Criador</th>
+        <th scope="col">Comentarios</th>
+        <th scope="col" colspan="3">Gerenciar sua publicações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.title %></td>
+          <td><%= post.body %></td>
+          <td><%= post.user.name %></td>
+          <td class="text-center"><%= link_to 'Mostrar', {:controller=>"comments", :action => 'post_index', :post_id => post.id } , class: 'btn btn-md badge badge-primary text-white', :style=>'font-size: 1rem;' %></td>
+
+          <% if current_user.id == post.user_id %>
+            <td class="text-center"><%= link_to 'Editar', edit_post_path(post) , class: 'btn btn-md badge badge-warning text-white', :style=>'font-size: 1rem;' %></td>
+            <td class="text-center"><%= link_to 'Remover', post, method: :delete, data: { confirm: 'Tem certeza?' } , class: 'btn btn-md badge badge-danger',  :style=>'font-size: 1rem;' %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+</script>
