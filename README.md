@@ -5,7 +5,10 @@ Módulo de sistema de gestão
 
 ## Features
 - Api de login com [gem devise](https://github.com/heartcombo/devise)
-- 
+- Api do CRUD de Usuários
+- Api do CRUD de Empresa
+- Api do CRUD de Publicações
+- Api do CRUD de Comentários
 
 ## Tecnologias utilizadas
 - [Ruby 2.7.1p83](https://www.ruby-lang.org/pt/)
