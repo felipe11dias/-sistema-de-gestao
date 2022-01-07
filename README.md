@@ -51,3 +51,7 @@ user.admin = false - Funcionário
 - 2 - Gerencie suas publicações
 - 3 - Gerencie seus comentários
 - 4 - Acompanhe o mural de mensagens
+
+
+## Fonte de Estudo Pessoal e Teste para emprego realizado em 2020
+- Tabbs [Site](https://www.tabbs.com.br/)
